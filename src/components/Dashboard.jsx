@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@/firebase'  // Import the Firestore instance
+
+
 const Pumpkin = ({ style }) => (
   <div className="pumpkin" style={style}>
     🎃
@@ -32,13 +36,62 @@ export default function Dashboard() {
   const [pumpkins, setPumpkins] = useState([]);
   const [clouds, setClouds] = useState([]);
 
+  async function lookupCarrier(phoneNumber) {
+    try {
+      // Format phone number before sending
+      let cleanNumber = phoneNumber.replace(/[^\d+]/g, '');
+      if (!cleanNumber.startsWith('+')) {
+        cleanNumber = cleanNumber.startsWith('1') ? `+${cleanNumber}` : `+1${cleanNumber}`;
+      }
+      
+      console.log('Sending formatted number:', cleanNumber);
+      
+      const response = await fetch('/api/lookup-carrier', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phoneNumber: cleanNumber }),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Lookup error:', errorData);
+        return 'Unknown';
+      }
+      
+      const data = await response.json();
+      // console.log("my data: ", data.)
+      return data.carrier || 'Unknown';
+    } catch (error) {
+      console.error('Error looking up carrier:', error);
+      return 'Unknown';
+    }
+  }
+
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString());
-    setCalls([
-      { dateTime: '2024-10-24 13:45', phoneNumber: '123-456-7890', carrier: 'Verizon', scamLikelihood: 85 },
-      { dateTime: '2024-10-25 07:30', phoneNumber: '123-456-7890', carrier: 'T-Mobile', scamLikelihood: 20 },
-      { dateTime: '2024-10-35 15:15', phoneNumber: '123-456-7890', carrier: 'AT&T', scamLikelihood: 60 },
-    ]);
+    
+    
+    // Replace the hardcoded setCalls with this function
+    const fetchCalls = async () => {
+      const callersCollection = collection(db, 'callers');
+      const callersSnapshot = await getDocs(callersCollection);
+      const callsData = await Promise.all(callersSnapshot.docs.map(async (doc) => {
+        const data = doc.data();
+        console.log("id: ", doc.id);
+        const carrier = await lookupCarrier(doc.id);
+        return {
+          dateTime: data.time,
+          phoneNumber: doc.id,
+          carrier: carrier,
+          scamLikelihood: Math.floor(Math.random() * 101),
+        };
+      }));
+      setCalls(callsData);
+    };
+
+    fetchCalls();
 
     const newPumpkins = Array.from({ length: 5 }, (_, i) => ({
       id: i,

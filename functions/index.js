@@ -17,7 +17,8 @@ exports.addCallerDocument = functions.https.onRequest(async (req, res) => {
 
         // Create a document with the caller ID and isScam field in the 'callers' collection
         await admin.firestore().collection("callers").doc(callerId).set({
-            isScam: false  // Add the isScam field set to false
+            isScam: false,  // Add the isScam field set to false
+            time: new Date().toLocaleString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(/,/, '')
         });
         
         res.status(200).send("Document added successfully");
@@ -44,7 +45,8 @@ exports.addCallerDocument2 = functions.https.onRequest(async (req, res) => {
 
         // Create a document with the caller ID and isScam field in the 'callers' collection
         await admin.firestore().collection("callers").doc(callerId).set({
-            isScam: true  // Change the isScam field to true
+            isScam: true,  // Change the isScam field to true
+            time: new Date().toLocaleString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(/,/, '')
         });
         
         res.status(200).send("Document added successfully");
