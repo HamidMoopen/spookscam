@@ -44,7 +44,7 @@ export default async function handler(req, res) {
   }
 
   const accountSid = "AC36571b49e45091c0f3b7925973d489b9";
-  const authToken = "472598780b048531c98ffee6cd9bb236";
+  const authToken = "2aeda4fe17e35e0a62531f99c31d7c0a";
 
   try {
     const client = twilio(accountSid, authToken);
