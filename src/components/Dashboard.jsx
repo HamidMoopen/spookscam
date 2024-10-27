@@ -35,6 +35,7 @@ export default function Dashboard() {
   const [calls, setCalls] = useState([]);
   const [pumpkins, setPumpkins] = useState([]);
   const [clouds, setClouds] = useState([]);
+  const [filterScam, setFilterScam] = useState(false);
 
   async function lookupCarrier(phoneNumber) {
     try {
@@ -123,6 +124,14 @@ export default function Dashboard() {
     document.documentElement.classList.toggle('dark');
   };
 
+  const toggleFilterScam = () => {
+    setFilterScam(!filterScam);
+  };
+
+  const filteredCalls = filterScam 
+    ? calls.filter(call => call.scamLikelihood > 75)
+    : calls.filter(call => call.scamLikelihood <= 75);
+
   return (
     <div className={`relative p-8 min-h-screen ${isDarkMode ? 'dark bg-gray-900 text-white' : 'bg-orange-400 text-orange-100'}`}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -138,7 +147,7 @@ export default function Dashboard() {
       <div className="relative z-10">
         <div className="w-full flex justify-center mb-10">
           <h1 className="text-6xl font-bold text-orange-500 text-outline font-creepster text-center px-4 py-2 bg-black bg-opacity-20 rounded-lg">
-            🎃 Spooky Call Tracker 👻
+            🎃 The Scam Scare Tracker 👻
           </h1>
         </div>
         
@@ -205,7 +214,7 @@ export default function Dashboard() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {calls.map((call, index) => (
+                {filteredCalls.map((call, index) => (
                   <TableRow key={index}>
                     <TableCell>{call.dateTime}</TableCell>
                     <TableCell>{call.phoneNumber}</TableCell>
@@ -221,6 +230,11 @@ export default function Dashboard() {
             </Table>
           </CardContent>
         </Card>
+        <div className="flex justify-end mb-4 mt-4">
+          <Button variant="outline" onClick={toggleFilterScam}>
+            {filterScam ? 'Show Unlikely Scams' : 'Show Likely Scams'}
+          </Button>
+        </div>
       </div>
     </div>
   );
