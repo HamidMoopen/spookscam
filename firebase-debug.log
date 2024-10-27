@@ -1,0 +1,243 @@
+[debug] [2024-10-27T06:33:19.798Z] ----------------------------------------------------------------------
+[debug] [2024-10-27T06:33:19.804Z] Command:       /usr/local/Cellar/node@20/20.18.0_1/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2024-10-27T06:33:19.805Z] CLI Version:   13.15.3
+[debug] [2024-10-27T06:33:19.805Z] Platform:      darwin
+[debug] [2024-10-27T06:33:19.805Z] Node Version:  v20.18.0
+[debug] [2024-10-27T06:33:19.805Z] Time:          Sun Oct 27 2024 01:33:19 GMT-0500 (Central Daylight Time)
+[debug] [2024-10-27T06:33:19.805Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-27T06:33:19.899Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-27T06:33:19.899Z] > authorizing via signed-in user (emirdanisik4242@gmail.com)
+[debug] [2024-10-27T06:33:19.899Z] [iam] checking project hackunt-6942d for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-10-27T06:33:19.901Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions [none]
+[debug] [2024-10-27T06:33:19.901Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:19.902Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-10-27T06:33:20.102Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions 200
+[debug] [2024-10-27T06:33:20.103Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-10-27T06:33:20.104Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/hackunt-6942d/serviceAccounts/hackunt-6942d@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-10-27T06:33:20.104Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/hackunt-6942d/serviceAccounts/hackunt-6942d@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-10-27T06:33:20.250Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/hackunt-6942d/serviceAccounts/hackunt-6942d@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-10-27T06:33:20.250Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/hackunt-6942d/serviceAccounts/hackunt-6942d@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'hackunt-6942d'...
+[info] 
+[info] i  deploying functions 
+[debug] [2024-10-27T06:33:20.258Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d [none]
+[debug] [2024-10-27T06:33:20.469Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d 200
+[debug] [2024-10-27T06:33:20.469Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d {"projectId":"hackunt-6942d","projectNumber":"220991056898","displayName":"hackunt","name":"projects/hackunt-6942d","resources":{"hostingSite":"hackunt-6942d","realtimeDatabaseInstance":"hackunt-6942d-default-rtdb","storageBucket":"hackunt-6942d.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_3c59a4ee-6043-42d5-93fb-37f3948e7928"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-10-27T06:33:20.472Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-10-27T06:33:20.472Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:20.474Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-10-27T06:33:20.474Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:20.485Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com [none]
+[debug] [2024-10-27T06:33:20.486Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:20.495Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com [none]
+[debug] [2024-10-27T06:33:20.495Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:20.664Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/runtimeconfig.googleapis.com 200
+[debug] [2024-10-27T06:33:20.664Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-10-27T06:33:20.682Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com 200
+[debug] [2024-10-27T06:33:20.685Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com [omitted]
+[warn] ⚠  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2024-10-27T06:33:20.688Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2024-10-27T06:33:20.688Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:20.694Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudfunctions.googleapis.com 200
+[debug] [2024-10-27T06:33:20.695Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-10-27T06:33:20.696Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com 200
+[debug] [2024-10-27T06:33:20.697Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com [omitted]
+[warn] ⚠  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2024-10-27T06:33:20.697Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2024-10-27T06:33:20.698Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:21.052Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com:enable 200
+[debug] [2024-10-27T06:33:21.052Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2024-10-27T06:33:21.053Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com:enable 200
+[debug] [2024-10-27T06:33:21.053Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2024-10-27T06:33:31.054Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com [none]
+[debug] [2024-10-27T06:33:31.055Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:31.072Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com [none]
+[debug] [2024-10-27T06:33:31.073Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:31.285Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com 200
+[debug] [2024-10-27T06:33:31.285Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-10-27T06:33:31.300Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com 200
+[debug] [2024-10-27T06:33:31.300Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-10-27T06:33:31.302Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d/adminSdkConfig [none]
+[debug] [2024-10-27T06:33:31.610Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d/adminSdkConfig 200
+[debug] [2024-10-27T06:33:31.611Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d/adminSdkConfig {"projectId":"hackunt-6942d","databaseURL":"https://hackunt-6942d-default-rtdb.firebaseio.com","storageBucket":"hackunt-6942d.appspot.com","locationId":"us-central"}
+[debug] [2024-10-27T06:33:31.612Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/hackunt-6942d/configs [none]
+[debug] [2024-10-27T06:33:31.885Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/hackunt-6942d/configs 200
+[debug] [2024-10-27T06:33:31.885Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/hackunt-6942d/configs {}
+[debug] [2024-10-27T06:33:31.890Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2024-10-27T06:33:37.371Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-10-27T06:33:37.372Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-10-27T06:33:37.382Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-10-27T06:33:37.438Z] Found firebase-functions binary at '/Users/emirdanisik/spookscam/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8177
+
+[debug] [2024-10-27T06:33:42.464Z] Got response from /__/functions.yaml {"endpoints":{"addCallerDocument":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"addCallerDocument"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-10-27T06:33:46.512Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-10-27T06:33:46.513Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:46.685Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/firebaseextensions.googleapis.com 200
+[debug] [2024-10-27T06:33:46.686Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hackunt-6942d/services/firebaseextensions.googleapis.com [omitted]
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /Users/emirdanisik/spookscam/functions (63.01 KB) for uploading 
+[debug] [2024-10-27T06:33:46.784Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/-/functions [none]
+[debug] [2024-10-27T06:33:47.362Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/-/functions 200
+[debug] [2024-10-27T06:33:47.363Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/-/functions {}
+[debug] [2024-10-27T06:33:47.364Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/hackunt-6942d/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-10-27T06:33:47.720Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/hackunt-6942d/locations/-/functions 200
+[debug] [2024-10-27T06:33:47.721Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/hackunt-6942d/locations/-/functions {}
+[debug] [2024-10-27T06:33:47.728Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d [none]
+[debug] [2024-10-27T06:33:47.878Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d 200
+[debug] [2024-10-27T06:33:47.878Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hackunt-6942d {"projectId":"hackunt-6942d","projectNumber":"220991056898","displayName":"hackunt","name":"projects/hackunt-6942d","resources":{"hostingSite":"hackunt-6942d","realtimeDatabaseInstance":"hackunt-6942d-default-rtdb","storageBucket":"hackunt-6942d.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_3c59a4ee-6043-42d5-93fb-37f3948e7928"}
+[debug] [2024-10-27T06:33:47.884Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/hackunt-6942d/billingInfo [none]
+[debug] [2024-10-27T06:33:48.170Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/hackunt-6942d/billingInfo 200
+[debug] [2024-10-27T06:33:48.170Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/hackunt-6942d/billingInfo {"name":"projects/hackunt-6942d/billingInfo","projectId":"hackunt-6942d","billingAccountName":"billingAccounts/0172CB-7EFFAB-ECB791","billingEnabled":true}
+[debug] [2024-10-27T06:33:48.173Z] [functions] found 1 new HTTP functions, testing setIamPolicy permission...
+[debug] [2024-10-27T06:33:48.174Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions [none]
+[debug] [2024-10-27T06:33:48.174Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions x-goog-quota-user=projects/hackunt-6942d
+[debug] [2024-10-27T06:33:48.174Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2024-10-27T06:33:48.289Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions 200
+[debug] [2024-10-27T06:33:48.289Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hackunt-6942d:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2024-10-27T06:33:48.290Z] [functions] found setIamPolicy permission, proceeding with deploy
+[debug] [2024-10-27T06:33:48.291Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2024-10-27T06:33:48.291Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2024-10-27T06:33:58.701Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2024-10-27T06:33:58.701Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-883881217096.us-central1.cloudfunctions.appspot.com/c341ac85-400d-456d-bb64-dc67356ee259.zip?GoogleAccessId=service-220991056898@gcf-admin-robot.iam.gserviceaccount.com&Expires=1730012638&Signature=bNQSrZCjsWri4uQ2kOjh4vy%2BW4SGOioCWhk1hq4oNHzdiu5tPVS7lE9gLIAx96QHmohUIw4Kzdtg06bTSz0L5%2BKFmtFfMFHlTeBZz3LCwF%2BjLM7Ol6KnpOBakgvrhe8oOlvH33vHlQi%2BZG7kMyXd%2FGTD%2FnfFJpq2iVYPQrGzMum93mYDoXlqhS7Y4EZSbLwIUiZ3LxxfrSn5zfilPsNmHGtsmATstHDte3Xo8DvlBzcZ%2F0rPvTgyu4HTsPjUDVuxlB3JXYc0TKpWD9%2BxCUskSdb48F%2BSR6bZosJbeeBjP8ggr65ydN8rWYy6cszYbDmvmeMRd%2Fi%2BNfIhEhEe0bTylQ%3D%3D"}
+[debug] [2024-10-27T06:33:58.705Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-883881217096.us-central1.cloudfunctions.appspot.com/c341ac85-400d-456d-bb64-dc67356ee259.zip GoogleAccessId=service-220991056898%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1730012638&Signature=bNQSrZCjsWri4uQ2kOjh4vy%2BW4SGOioCWhk1hq4oNHzdiu5tPVS7lE9gLIAx96QHmohUIw4Kzdtg06bTSz0L5%2BKFmtFfMFHlTeBZz3LCwF%2BjLM7Ol6KnpOBakgvrhe8oOlvH33vHlQi%2BZG7kMyXd%2FGTD%2FnfFJpq2iVYPQrGzMum93mYDoXlqhS7Y4EZSbLwIUiZ3LxxfrSn5zfilPsNmHGtsmATstHDte3Xo8DvlBzcZ%2F0rPvTgyu4HTsPjUDVuxlB3JXYc0TKpWD9%2BxCUskSdb48F%2BSR6bZosJbeeBjP8ggr65ydN8rWYy6cszYbDmvmeMRd%2Fi%2BNfIhEhEe0bTylQ%3D%3D
+[debug] [2024-10-27T06:33:58.705Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-883881217096.us-central1.cloudfunctions.appspot.com/c341ac85-400d-456d-bb64-dc67356ee259.zip [stream]
+[debug] [2024-10-27T06:33:58.951Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-883881217096.us-central1.cloudfunctions.appspot.com/c341ac85-400d-456d-bb64-dc67356ee259.zip 200
+[debug] [2024-10-27T06:33:58.951Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-883881217096.us-central1.cloudfunctions.appspot.com/c341ac85-400d-456d-bb64-dc67356ee259.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[info] i  functions: creating Node.js 18 (1st Gen) function addCallerDocument(us-central1)... 
+[debug] [2024-10-27T06:33:58.966Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions [none]
+[debug] [2024-10-27T06:33:58.966Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions {"name":"projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument","sourceUploadUrl":"https://storage.googleapis.com/uploads-883881217096.us-central1.cloudfunctions.appspot.com/c341ac85-400d-456d-bb64-dc67356ee259.zip?GoogleAccessId=service-220991056898@gcf-admin-robot.iam.gserviceaccount.com&Expires=1730012638&Signature=bNQSrZCjsWri4uQ2kOjh4vy%2BW4SGOioCWhk1hq4oNHzdiu5tPVS7lE9gLIAx96QHmohUIw4Kzdtg06bTSz0L5%2BKFmtFfMFHlTeBZz3LCwF%2BjLM7Ol6KnpOBakgvrhe8oOlvH33vHlQi%2BZG7kMyXd%2FGTD%2FnfFJpq2iVYPQrGzMum93mYDoXlqhS7Y4EZSbLwIUiZ3LxxfrSn5zfilPsNmHGtsmATstHDte3Xo8DvlBzcZ%2F0rPvTgyu4HTsPjUDVuxlB3JXYc0TKpWD9%2BxCUskSdb48F%2BSR6bZosJbeeBjP8ggr65ydN8rWYy6cszYbDmvmeMRd%2Fi%2BNfIhEhEe0bTylQ%3D%3D","entryPoint":"addCallerDocument","runtime":"nodejs18","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"464aef401fb141470cd703131e2ff55be1e6637c"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hackunt-6942d\",\"databaseURL\":\"https://hackunt-6942d-default-rtdb.firebaseio.com\",\"storageBucket\":\"hackunt-6942d.appspot.com\",\"locationId\":\"us-central\"}","GCLOUD_PROJECT":"hackunt-6942d","EVENTARC_CLOUD_EVENT_SOURCE":"projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument"},"serviceAccountEmail":null,"availableMemoryMb":null,"timeout":null,"vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2024-10-27T06:34:00.472Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions 400
+[debug] [2024-10-27T06:34:00.472Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/hackunt-6942d/locations/us-central1/functions {"error":{"code":400,"message":"Default service account '220991056898-compute@developer.gserviceaccount.com' doesn't exist. Please recreate this account or specify a different account. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.","status":"FAILED_PRECONDITION"}}
+[warn] ⚠  functions: failed to create function projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument 
+[error] Failed to create function projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument
+[debug] [2024-10-27T06:34:00.482Z] Total Function Deployment time: 1520
+[debug] [2024-10-27T06:34:00.482Z] 1 Functions Deployed
+[debug] [2024-10-27T06:34:00.482Z] 1 Functions Errored
+[debug] [2024-10-27T06:34:00.482Z] 0 Function Deployments Aborted
+[debug] [2024-10-27T06:34:00.485Z] Average Function Deployment time: 1518
+[info] 
+[info] Functions deploy had errors with the following functions:
+	addCallerDocument(us-central1)
+[debug] [2024-10-27T06:34:00.490Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-10-27T06:34:00.501Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/hackunt-6942d/locations/us-central1/repositories/gcf-artifacts/packages/add_caller_document [none]
+[debug] [2024-10-27T06:34:00.506Z] >>> [apiv2][query] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list [none]
+[debug] [2024-10-27T06:34:00.771Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/hackunt-6942d/locations/us-central1/repositories/gcf-artifacts/packages/add_caller_document 404
+[debug] [2024-10-27T06:34:00.772Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/hackunt-6942d/locations/us-central1/repositories/gcf-artifacts/packages/add_caller_document {"error":{"code":404,"message":"Package \"projects/hackunt-6942d/locations/us-central1/repositories/gcf-artifacts/packages/add_caller_document\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-10-27T06:34:00.870Z] <<< [apiv2][status] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list 404
+[debug] [2024-10-27T06:34:00.871Z] <<< [apiv2][body] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-10-27T06:34:00.871Z] Failed docker command with error  HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Not Found","status":404}
+[debug] [2024-10-27T06:34:00.874Z] >>> [apiv2][query] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list [none]
+[debug] [2024-10-27T06:34:00.965Z] <<< [apiv2][status] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list 404
+[debug] [2024-10-27T06:34:00.966Z] <<< [apiv2][body] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-10-27T06:34:00.966Z] Failed docker command with error  HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Not Found","status":404}
+[debug] [2024-10-27T06:34:01.068Z] >>> [apiv2][query] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list [none]
+[debug] [2024-10-27T06:34:01.175Z] <<< [apiv2][status] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list 404
+[debug] [2024-10-27T06:34:01.175Z] <<< [apiv2][body] GET https://us.gcr.io/v2/hackunt-6942d/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-10-27T06:34:01.177Z] Failed docker command with error  HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Not Found","status":404}
+[warn] ⚠  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/hackunt-6942d/us/gcf 
+[debug] [2024-10-27T06:34:01.178Z] Functions deploy failed.
+[debug] [2024-10-27T06:34:01.178Z] {
+  "endpoint": {
+    "id": "addCallerDocument",
+    "project": "hackunt-6942d",
+    "region": "us-central1",
+    "entryPoint": "addCallerDocument",
+    "platform": "gcfv1",
+    "runtime": "nodejs18",
+    "httpsTrigger": {},
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"hackunt-6942d\",\"databaseURL\":\"https://hackunt-6942d-default-rtdb.firebaseio.com\",\"storageBucket\":\"hackunt-6942d.appspot.com\",\"locationId\":\"us-central\"}",
+      "GCLOUD_PROJECT": "hackunt-6942d",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "464aef401fb141470cd703131e2ff55be1e6637c",
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    }
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/hackunt-6942d/locations/us-central1/functions/addCallerDocument",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 400,
+            "message": "Default service account '220991056898-compute@developer.gserviceaccount.com' doesn't exist. Please recreate this account or specify a different account. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.",
+            "status": "FAILED_PRECONDITION"
+          }
+        },
+        "response": {
+          "statusCode": 400
+        }
+      },
+      "exit": 1,
+      "message": "HTTP Error: 400, Default service account '220991056898-compute@developer.gserviceaccount.com' doesn't exist. Please recreate this account or specify a different account. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.",
+      "status": 400
+    },
+    "status": 400,
+    "code": 400
+  }
+}
+[debug] [2024-10-27T06:34:01.181Z] Error: Failed to create function addCallerDocument in region us-central1
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:52:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.createV1Function (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:182:32)
+    at async Fabricator.createEndpoint (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:134:13)
+    at async handle (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions
