@@ -21,18 +21,23 @@ const CandleLight = () => (
   <div className="candle-light pointer-events-none"></div>
 );
 
+const Cloud = ({ style, type, isDarkMode }) => (
+  <div className={`cloud cloud-${type} ${isDarkMode ? 'cloud-dark' : ''}`} style={style}></div>
+);
+
 export default function Dashboard() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
   const [calls, setCalls] = useState([]);
   const [pumpkins, setPumpkins] = useState([]);
+  const [clouds, setClouds] = useState([]);
 
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString());
     setCalls([
-      { dateTime: '2024-10-24 13:45', carrier: 'Verizon', scamLikelihood: 85 },
-      { dateTime: '2024-10-25 07:30', carrier: 'T-Mobile', scamLikelihood: 20 },
-      { dateTime: '2024-10-35 15:15', carrier: 'AT&T', scamLikelihood: 60 },
+      { dateTime: '2024-10-24 13:45', phoneNumber: '123-456-7890', carrier: 'Verizon', scamLikelihood: 85 },
+      { dateTime: '2024-10-25 07:30', phoneNumber: '123-456-7890', carrier: 'T-Mobile', scamLikelihood: 20 },
+      { dateTime: '2024-10-35 15:15', phoneNumber: '123-456-7890', carrier: 'AT&T', scamLikelihood: 60 },
     ]);
 
     const newPumpkins = Array.from({ length: 5 }, (_, i) => ({
@@ -44,6 +49,18 @@ export default function Dashboard() {
       },
     }));
     setPumpkins(newPumpkins);
+
+    const newClouds = Array.from({ length: 10 }, (_, i) => ({
+      id: i,
+      type: Math.floor(Math.random() * 3) + 1, 
+      style: {
+        top: `${Math.random() * 70}%`,
+        left: `${Math.random() * 100}%`,
+        animationDuration: `${Math.random() * 60 + 60}s`, 
+        animationDelay: `${Math.random() * -60}s`,
+      },
+    }));
+    setClouds(newClouds);
   }, []);
 
   const toggleDarkMode = () => {
@@ -59,6 +76,9 @@ export default function Dashboard() {
         ))}
         <Fog />
         <CandleLight />
+        {clouds.map((cloud) => (
+          <Cloud key={cloud.id} style={cloud.style} type={cloud.type} isDarkMode={isDarkMode} />
+        ))}
       </div>
       <div className="relative z-10">
         <div className="w-full flex justify-center mb-10">
@@ -68,7 +88,7 @@ export default function Dashboard() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card className={isDarkMode ? 'bg-gray-800' : ''}>
+          <Card className={isDarkMode ? 'bg-gray-800' : ''}>
             <CardHeader>
               <CardTitle>Total Calls</CardTitle>
             </CardHeader>
@@ -115,7 +135,7 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        <Card className={isDarkMode ? 'bg-gray-800 text-white' : 'bg-white'}>
+        <Card className={`${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white bg-opacity-80'}`}>
           <CardHeader>
             <CardTitle>Recent Calls</CardTitle>
           </CardHeader>
@@ -124,6 +144,7 @@ export default function Dashboard() {
               <TableHeader>
                 <TableRow>
                   <TableHead className={isDarkMode ? 'text-gray-300' : ''}>Date & Time</TableHead>
+                  <TableHead className={isDarkMode ? 'text-gray-300' : ''}>Phone Number</TableHead>
                   <TableHead className={isDarkMode ? 'text-gray-300' : ''}>Carrier</TableHead>
                   <TableHead className={isDarkMode ? 'text-gray-300' : ''}>Scam Likelihood</TableHead>
                 </TableRow>
@@ -132,6 +153,7 @@ export default function Dashboard() {
                 {calls.map((call, index) => (
                   <TableRow key={index}>
                     <TableCell>{call.dateTime}</TableCell>
+                    <TableCell>{call.phoneNumber}</TableCell>
                     <TableCell>{call.carrier}</TableCell>
                     <TableCell>
                       <span className={`px-2 py-1 rounded ${getScamColor(call.scamLikelihood)}`}>
