@@ -85,7 +85,9 @@ export default function Dashboard() {
           dateTime: data.time,
           phoneNumber: doc.id,
           carrier: carrier,
-          scamLikelihood: Math.floor(Math.random() * 101),
+          scamLikelihood: data.isScam 
+            ? Math.floor(Math.random() * 21) + 80  // 80 to 100 if isScam is true
+            : Math.floor(Math.random() * 21) + 10, // 10 to 30 if isScam is false
         };
       }));
       setCalls(callsData);
